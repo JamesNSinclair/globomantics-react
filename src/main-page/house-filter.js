@@ -1,7 +1,12 @@
 import { useNavigate as useHistory } from "react-router-dom";
+import {useContext} from "react"
+import HousesContext from "../context/housesContext"
 
-const HouseFilter = ({ allHouses }) => {
+
+const HouseFilter = () => {
+  const allHouses = useContext(HousesContext)
   const history = useHistory();
+
 
   const countries = allHouses
     ? Array.from(new Set(allHouses.map((h) => h.country)))
